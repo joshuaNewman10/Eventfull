@@ -1,5 +1,5 @@
 var React = require('react');
-var Link = require('react-router-component').Link;
+var Link = require('react-router').Link;
 var ViewActionCreator = require('../../actions/view-action-creator');
 
 var Sidebar = React.createClass({
@@ -11,9 +11,9 @@ var Sidebar = React.createClass({
         </div>
         <ul className="nav nav-sidebar">
           <li className="active"><a href="#">Overview <span className="sr-only">(current)</span></a></li>
-          <li><Link href='/day'>Day View</Link></li>
-          <li><Link href='/week'>Week View</Link></li>
-          <li><Link href='/month'>Month View</Link></li>
+          <li><Link to='/day'>Day View</Link></li>
+          <li><Link to='/week'>Week View</Link></li>
+          <li><Link to='/month'>Month View</Link></li>
         </ul>
         <ul className="nav nav-sidebar">
           <li><a href="#actionbar/add-event">Add Event</a></li>

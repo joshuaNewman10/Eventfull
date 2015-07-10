@@ -2,7 +2,7 @@
 var React = require('react');
 var MonthDayCard = require('./month-day-card');
 var _ = require('underscore');
-var Link = require('react-router-component').Link;
+var Link = require('react-router').Link;
 
 var MonthWeekBin = React.createClass({
   render: function () {
@@ -17,6 +17,7 @@ var MonthWeekBin = React.createClass({
     var weekPath = '/week/' + weekNumber;
     return (
       <div className="month-bin">
+        <Link to = {weekPath} >Week View</Link>
         { weekEvents }
       </div>
     );

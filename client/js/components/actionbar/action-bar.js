@@ -1,5 +1,5 @@
 var React = require('react');
-var Link = require('react-router-component').Link;
+var Link = require('react-router').Link;
 var classnames = require('classnames');
 var AddEvent = require('./add-event');
 var AddEmployee = require('./add-employee');
@@ -23,7 +23,7 @@ var Actionbar = React.createClass({
 
     return (
       <div className={classes} id="action-bar">
-        <Link href={window.location.pathname} className="x-close">x</Link>
+        <Link to={window.location.pathname} className="x-close">x</Link>
         <Action></Action>
       </div>
     );
