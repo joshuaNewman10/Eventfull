@@ -35,6 +35,7 @@ var Month = React.createClass({
         <MonthHeader month={ month } year={ year } />
         <MonthBoard monthWeeks= { this.state.data } />
         <MonthDayPreview />
+      </div>
     );
   }
 });

@@ -23,10 +23,12 @@ var App = React.createClass({
     },
 
   componentDidMount: function () {
-    window.addEventListener('hashchange', this.handleHashChange);
+    window.onhashchange = this.handleHashChange;
+    window.onbeforeunload = this.handleHashChange;
   },
 
   handleHashChange: function () {
+    console.log('it worked!');
     var newHash = window.location.hash;
     var actionbarHashActivated = /#actionbar.*/.test(newHash);
     var actionbarOpen = this.state.actionbarOpen;
@@ -53,10 +55,12 @@ var App = React.createClass({
   });
 
     return (
-      <div className="row">
+      <div className="row" >
         <Sidebar />
         <Actionbar actionbarOpen={actionbarOpen} hashRoute={hashRoute} />
-        <RouteHandler />
+        <div className= {classes}>
+          <RouteHandler />
+        </div>
       </div>
     );
 }
@@ -65,7 +69,7 @@ var App = React.createClass({
 App = DragDropContext(HTML5Backend)(App);
 
 var routes = (
-  <Route  id="schedule" handler={App}>
+  <Route handler={App}>
     <DefaultRoute handler={Month} />
     <Route name="month" path="month" handler={Month} />
     <Route name="week"  path ="week" handler={Week} />
@@ -76,5 +80,3 @@ var routes = (
 Router.run(routes, Router.HistoryLocation, function (Root) {
   React.render(<Root/>, document.getElementById('content'));
 });
-
-
